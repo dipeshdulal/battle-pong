@@ -1,4 +1,5 @@
-# Battle Pong
+# Battle Pong (underdevelopment)
+
 Battle Pong is a simple pong game with different power 
 ups and level ups wihthin the game.
 This game is created as the computer graphics project for 
