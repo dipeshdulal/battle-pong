@@ -18,7 +18,7 @@ export default class Bat {
         rect.drawRect(this.x, 0, 10, 100);
         rect.endFill();
         rect.interactive = true;
-        rect.on("mousemove", (e) => { this.move_bat(e, rect); } )
+        if(this.no_attachment) rect.on("mousemove", (e) => { this.move_bat(e, rect); } )
         this.stage.addChild(rect);
     }
 
