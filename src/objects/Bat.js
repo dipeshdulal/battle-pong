@@ -1,5 +1,6 @@
-// bat of the ping pong
+import {pixi} from 'pixi.js';
 
+// bat of the ping pong
 export default class Bat {
 
     constructor(x, color, no_attachment){

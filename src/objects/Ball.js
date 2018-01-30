@@ -25,4 +25,5 @@ export default class Ball{
     }
 
     get_ball(){ return this.stage; }
+
 }
