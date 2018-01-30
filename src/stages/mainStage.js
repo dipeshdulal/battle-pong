@@ -5,8 +5,8 @@ import Ball from '../objects/Ball';
 let stage = new PIXI.Container;
 // automatic player
 let bat1 = new Bat(0, 0x16a085);
-
-let bat2 = new Bat(400, 0x16a085, true);
+let max_width = getComputedStyle(document.getElementById("app")).width.split("px")[0];
+let bat2 = new Bat(max_width - 10, 0x16a085, true);
 let ball = new Ball(0xecf0f1);
 
 let ticker = new PIXI.ticker.Ticker();
