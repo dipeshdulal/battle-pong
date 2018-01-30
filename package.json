@@ -11,6 +11,9 @@
   "author": "Dipesh Dulal, Dipesh KC, Abhimanyu Pandey, Dipesh Shrestha",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.6.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.0"
   },

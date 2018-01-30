@@ -13,7 +13,7 @@ To run this game
 ```sh
 git clone http://github.com/dipeshdulal/battle-pong
 npm install
-npm run dev:server
+npm run dev
 ``` 
 
 Go to browser to localhost:8000
