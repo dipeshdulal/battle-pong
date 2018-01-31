@@ -15,5 +15,4 @@ let setup = () => {
 
 app.loader.load(setup);
 
-
 document.getElementById("app").appendChild(app.view);
