@@ -1,4 +1,5 @@
 import {pixi} from 'pixi.js';
+import CONFIG from '../config';
 
 // bat of the ping pong
 export default class Bat {
@@ -24,7 +25,7 @@ export default class Bat {
     }
 
     move_bat(e, rect) {
-        rect.y = (e.data.global.y - 100 < 0) ? 0: e.data.global.y - 100;
+        rect.y = (e.data.global.y + 100 >= CONFIG.height) ? CONFIG.height-100 : (e.data.global.y < 0) ? 0 : e.data.global.y;
     }
 
     get_bat() { return this.stage; }

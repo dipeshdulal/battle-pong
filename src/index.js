@@ -1,12 +1,13 @@
 import { pixi } from 'pixi.js';
 import mainStage from './stages/mainStage';
+import CONFIG from './config';
 
 let type = (!PIXI.utils.isWebGLSupported())? "canvas" : "webgl";
 
 let app = new PIXI.Application({ 
-                        width: window.innerWidth, 
-                        height: window.innerHeight, 
-                        backgroundColor: 0x2c3e50,
+                        width: CONFIG.width, 
+                        height: CONFIG.height, 
+                        backgroundColor: CONFIG.backgroundColor,
                         autoResize: true });
 
 let setup = () => {
@@ -14,6 +15,5 @@ let setup = () => {
 }
 
 app.loader.load(setup);
-
 
 document.getElementById("app").appendChild(app.view);

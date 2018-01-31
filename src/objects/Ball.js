@@ -4,8 +4,7 @@ import {pixi} from 'pixi.js';
 export default class Ball{
     constructor(color){
         this.stage = new PIXI.Container();
-        this.x = 200;
-        this.y = 300;
+        this.speed = { x: 1, y: 1 };
         this.color = color;
         this.ball = new PIXI.Graphics();
         this.draw_ball();
@@ -21,7 +20,8 @@ export default class Ball{
 
     update_ball(delta){
         // update the ball position here
-        this.ball.x += 10;
+        this.ball.x += this.speed.x;
+        this.ball.y += this.speed.y;
     }
 
     get_ball(){ return this.stage; }
