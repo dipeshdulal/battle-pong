@@ -14,7 +14,7 @@ let ball = new Ball(0xecf0f1, 400, 300);
 // update logic
 let ticker = new PIXI.ticker.Ticker();
 
-ticker.stop();
+// ticker.stop();
 ticker.add( (del) => {
     ball.update_ball(del),
     ball.check_bound(del) // check the boundary and change direction

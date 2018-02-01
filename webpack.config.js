@@ -14,16 +14,4 @@ module.exports = {
         port: 8000
     },
 
-    module: {
-        rules: [
-            { 
-                test: /\.js$/, 
-                exclude: /node_modules/, 
-                loader: "babel-loader", 
-                options: {
-                    presets: ['env'] 
-                } 
-            }
-        ]
-    }
 }
