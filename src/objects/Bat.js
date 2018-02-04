@@ -4,12 +4,7 @@ import Ball from './Ball';
 
 // bat of the ping pong
 export default class Bat {
-<<<<<<< HEAD
-    constructor(x, color, no_attachment){
-=======
-
     constructor(x, color, no_attachment,parent){
->>>>>>> b55e440ad0d61c4a193b500b8d2c641ef13dda17
         this.stage = new PIXI.Container();
         this.y = 0;
         this.color = color;
@@ -22,9 +17,6 @@ export default class Bat {
         this.draw_bat();
     }
 
-<<<<<<< HEAD
-    draw_bat(){
-=======
     attach_ball(){
         this.stage.addChild(this.ball.get_stage());
         this.ball_attached = true;
@@ -39,7 +31,6 @@ export default class Bat {
     }
 
     draw_bat() {
->>>>>>> b55e440ad0d61c4a193b500b8d2c641ef13dda17
         let rect = new PIXI.Graphics();
         rect.beginFill(this.color, 1);
         rect.lineStyle(2, this.color, 1);
