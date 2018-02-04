@@ -3,7 +3,6 @@ import CONFIG from '../config';
 
 // bat of the ping pong
 export default class Bat {
-
     constructor(x, color, no_attachment){
         this.stage = new PIXI.Container();
         this.y = 0;
@@ -13,7 +12,7 @@ export default class Bat {
         this.draw_bat();
     }
 
-    draw_bat() {
+    draw_bat(){
         let rect = new PIXI.Graphics();
         rect.beginFill(this.color, 1);
         rect.lineStyle(2, this.color, 1);
