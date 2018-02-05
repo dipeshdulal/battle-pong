@@ -4,7 +4,6 @@ import Ball from './Ball';
 
 // bat of the ping pong
 export default class Bat {
-
     constructor(x, color, no_attachment,parent){
         this.stage = new PIXI.Container();
         this.y = 0;
