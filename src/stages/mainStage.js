@@ -3,26 +3,30 @@ import Bat from '../objects/Bat';
 import Ball from '../objects/Ball';
 import CONFIG from '../config';
 
+class MainStage{
 
-let stage = new PIXI.Container;
-stage.interactive=true;
-// automatic player
-let bat1 = new Bat(0, 0x16a085, true,stage);
-let bat2 = new Bat(CONFIG.width-10, 0x16a085, false,stage);
+	constructor(){
+		this.stage = new PIXI.Container;
+		this.stage.interactive=true;
+		this.bat1 = new Bat(0, 0x16a085, true,stage);
+		this.bat2 = new Bat(CONFIG.width-10, 0x16a085, true,stage);
+		this.bat1.attach_ball();
+		this.ticker = new PIXI.ticker.Ticker();
+		this.ticker.add(this.game_loop);
+		this.stage.addChild( bat1.get_bat(), bat2.get_bat());
+	}
 
-bat1.attach_ball();
+	// get the stage
+	get_stage(){
+		return this.stage;
+	}
 
-// update logic
-let ticker = new PIXI.ticker.Ticker();
+	game_loop(){
+		
+	}
+}
 
-// ticker.stop();
-ticker.add( (del) => {
-    //ball.update_ball(del,bat2);
-    // ball.check_bound(del); // check the boundary and change direction
-} );
-ticker.start();
-// end update logic
 
-stage.addChild( bat1.get_bat(), bat2.get_bat());
+let mainStage = new MainStage();
 
-export default stage;
+export default mainStage.get_stage;

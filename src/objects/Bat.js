@@ -11,7 +11,7 @@ export default class Bat {
         this.color = color;
         this.x = x;
         this.no_attachment = no_attachment;
-        this.ball = new Ball(0xffffff, (x + 20 > CONFIG.width - 10) ? x - 10: x + 20, 50);
+        this.ball = new Ball(0xffffff, (x + 20 > CONFIG.width - 10) ? x - 10: x + 20, 50,this);
         this.ball.draw_ball();
         this.ball_attached = true;
         this.parent=parent;

@@ -1,15 +1,16 @@
 import {pixi} from 'pixi.js';
 import CONFIG from '../config';
-import collision from '../lib/Collision';
+import Collision from '../lib/Collision';
 // ball implementation of battle pong game
 export default class Ball{
     
-    constructor(color, x, y){
+    constructor(color, x, y,bat){
         this.ticker = new PIXI.ticker.Ticker();
         this.stage = new PIXI.Container();
-        this.speed = { x: 1, y: 1};
+        this.speed = { x: 3, y: 3};
         this.color = color;
         this.ball = new PIXI.Graphics();
+        this.bat=bat;
         this.x = x;
         this.y = y;
     }
@@ -53,13 +54,22 @@ export default class Ball{
         //console.log(y);
         this.y=y;
         this.ticker.add(del=>{
+            //console.log(this.bat);
             this.update_ball(del);
             this.check_bound();
+
+            if(Collision.collision_wall(this.ball)){
+                this.stop_ball();
+
+            }
+           
+
         })
         this.ticker.start();
 
     }
     stop_ball(){
+
         this.ticker.stop();
     }
 }
