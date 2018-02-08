@@ -4,17 +4,19 @@ import Ball from './Ball';
 
 // bat of the ping pong
 export default class Bat {
-    constructor(x, color, no_attachment,parent){
+    constructor(x, color, no_attachment,parent, mainLoop){
         this.stage = new PIXI.Container();
         this.y = 0;
         this.color = color;
         this.x = x;
         this.no_attachment = no_attachment;
-        this.ball = new Ball(0xffffff, (x + 20 > CONFIG.width - 10) ? x - 10: x + 20, 50,this);
+        this.right=(x + 20 > CONFIG.width - 10);
+        this.ball = new Ball(0xffffff, (x + 20 > CONFIG.width - 10) ? x - 10: x + 20, 50,this,  (x + 20 > CONFIG.width - 10) );
         this.ball.draw_ball();
-        this.ball_attached = true;
+        this.ball_attached = false;
         this.parent=parent;
         this.draw_bat();
+        this.mainLoop=mainLoop;
     }
 
     attach_ball(){
@@ -37,11 +39,17 @@ export default class Bat {
         rect.drawRect(this.x, 0, 10, 100);
         rect.endFill();
         rect.interactive = true;
+        
         addEventListener('click', e => {
-            this.ball.release_ball(this.y+50);
+            if(this.ball_attached){
+            this.ball.release_ball(this.y + 50);
+            }
             this.unattach_ball();
+            this.mainLoop.start();
+            
         } );
         if(this.no_attachment) rect.on("mousemove", (e) => { this.move_bat(e, rect); } )
+    
         this.stage.addChild(rect);
     }
 

@@ -4,17 +4,31 @@ import CONFIG from '../config'
 let collision = {
 	collision_wall : (ball) => {
 		//console.log(ball.y)
-		if(ball.x>=CONFIG.width){
+		if(ball.x>=CONFIG.width-10){
+
 			return true;
-		}else{
+		}
+		if(ball.x<=0){
+			
+			return true;
+		}
+		else{
 			return false;
 		}
 	},
 	collision_bat : (ball,bat) => {
-		//console.log(bat,ball);
-		if(ball.x>=bat.x&&ball.y>bat.y&&ball.y<bat.y+100){
-			console.log("a");
+		if(ball.y > bat.y && ball.y < bat.y + 100){
+
+			if(bat.right && (ball. x > bat.x-10) ){ 
+				// console.log("1");
+				return true; 
+			}
+
+			if(!bat.right && (ball.x < bat.x+20) ){ 
+				return true; 
+			}
 		}
+		return false;		
 	}
 }
 
