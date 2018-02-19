@@ -13,6 +13,11 @@ export default class Ball{
         this.bat=bat;
         this.x = x;
         this.y = y;
+
+        this.ticker.add(del => {
+            this.update_ball(del);
+            this.check_bound();
+        });
     }
 
     draw_ball(){
@@ -25,14 +30,11 @@ export default class Ball{
 
     update_ball(delta){
         // update the ball position here
-// console.log(this.y)            
-    console.log(this.x);
+
         this.ball.x += this.speed.x;    
         this.ball.y += this.speed.y;
         this.x += this.speed.x
         this.y += this.speed.y;        
-        //console.log("bat1");
-             
 
     }
 
@@ -40,8 +42,6 @@ export default class Ball{
     get_stage(){ return this.stage; }
 
     check_bound(delta){
-        // check the bound
-        //console.log(this.ball.y);
         
         if(this.y <= 10){ // upper bound
             
@@ -58,22 +58,25 @@ export default class Ball{
     }
 
     release_ball(y){
-        //console.log(y);
-        this.y=y;
-        this.ticker.add(del=>{
-            //console.log(this.bat);
+        this.y = y; 
+        this.ticker.start();
+    }
+
+    reset(x){
+        // reset the game here
+        this.ball.x = 0;
+        this.x = x - 10;    
+        this.speed = {x: -3, y: this.speed.y };   
+    }
+
+    stop_ball(){
+        this.ticker.stop();
+        this.ticker.destroy();
+        this.ticker = new PIXI.ticker.Ticker();
+        this.ticker.add(del => {
             this.update_ball(del);
             this.check_bound();
-
-        })
-        this.ticker.start();
-
-    }
-    stop_ball(){
-        //console.log(1)
-        this.alive=false;
-        this.ticker.stop();
-        
+        });
     }
 
 }

@@ -8,10 +8,10 @@ let collision = {
 
 			return true;
 		}
-		if(ball.x<=0){
+		// if(ball.x<=0){
 			
-			return true;
-		}
+		// 	return true;
+		// }
 		else{
 			return false;
 		}
@@ -29,6 +29,12 @@ let collision = {
 			}
 		}
 		return false;		
+	},
+
+	collision_squash: (ball) => {
+		if(ball.x<=10){
+			return true;
+		}
 	}
 }
 

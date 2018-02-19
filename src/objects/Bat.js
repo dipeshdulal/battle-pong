@@ -42,11 +42,10 @@ export default class Bat {
         
         addEventListener('click', e => {
             if(this.ball_attached){
-            this.ball.release_ball(this.y + 50);
+                this.ball.release_ball(this.y + 50);
             }
             this.unattach_ball();
             this.mainLoop.start();
-            
         } );
         if(this.no_attachment) rect.on("mousemove", (e) => { this.move_bat(e, rect); } )
     
